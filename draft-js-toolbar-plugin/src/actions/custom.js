@@ -12,7 +12,7 @@ export default [
       block.findEntityRanges(
         (character) => {
           const entityKey = character.getEntity();
-          return entityKey !== null && Entity.get(entityKey).getType() === 'link';
+          return entityKey !== null && Entity.get(entityKey).getType() === 'LINK';
         },
 
         (start, end) => {
@@ -36,7 +36,7 @@ export default [
         setEditorState(RichUtils.toggleLink(editorState, selection, null));
       } else {
         const href = window.prompt('Enter a URL'); // eslint-disable-line no-alert
-        const entityKey = Entity.create('link', 'MUTABLE', { href });
+        const entityKey = Entity.create('LINK', 'MUTABLE', { href });
         setEditorState(RichUtils.toggleLink(editorState, selection, entityKey));
       }
     },
